@@ -52,7 +52,6 @@
       </video>
 
       <div class="content">
-        <!-- tu contenido -->
          <br><br><br><br><br><br><br><br><br>
       <h1 style="text-align: center;filter:drop-shadow(5px 5px 5px black)">EL FUTURO SE DEFINE EL 14 DE MARZO DE 2026</h1>
       <h2 id="contador" style="color:#f61601;text-shadow:0 0 10px rgb(0, 0, 0);font-size:xx-large;">
@@ -174,15 +173,13 @@ function marcarProgressCompletados() {
     // Evita remarcar dos veces
     if (bar.classList.contains('success')) return;
 
-    // Cuando el progress deja de crecer (100%)
     const texto = bar.textContent || '';
-    if (texto === '███████████████ 100%') { // coincide con progressLength
+    if (texto === '███████████████ 100%') { 
       bar.classList.add('success');
     }
   });
 }
 
-// Chequea periódicamente
 setInterval(marcarProgressCompletados, 100);
 </script>
 
