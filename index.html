@@ -28,11 +28,11 @@
   <div id="termynal" data-termynal>
     <span data-ty="input">SKYNET OS v4.0</span>
     <span data-ty>INICIANDO SISTEMA…</span>
-    <span data-ty="progress"></span>
+    <span data-ty="progress" id="progress1"></span>
     <span data-ty>PROTOCOLO: BODA_140326</span>
-    <span data-ty="progress"></span>
+    <span data-ty="progress" id="progress2"></span>
     <span data-ty>DETECTANDO OBJETIVO...</span>
-    <span data-ty="progress"></span>
+    <span data-ty="progress" id="progress3"></span>
     <span data-ty>UNION DEFINITIVA</span>
     
     <span data-ty class="success">SYSTEM ONLINE</span>
@@ -46,13 +46,22 @@
   <button id="sound-btn">🔊</button>
 
   <header>
-    <div class="card" style="background: url('rysimg2.jpeg') no-repeat center / cover; width:340px;height:500px;text-align: center;">
-      <h1 style="text-align: center;">El futuro se define el 14 de marzo de 2026</h1><br><br><br><br><br><br><br><br><br>
-      <h2 id="contador" style="color:#f61601;text-shadow:0 0 6px red">
+          <div class="card">
+      <video autoplay muted playsinline>
+        <source src="vid1.mp4" type="video/mp4">
+      </video>
+
+      <div class="content">
+        <!-- tu contenido -->
+         <br><br><br><br><br><br><br><br><br>
+      <h1 style="text-align: center;filter:drop-shadow(5px 5px 5px black)">EL FUTURO SE DEFINE EL 14 DE MARZO DE 2026</h1>
+      <h2 id="contador" style="color:#f61601;text-shadow:0 0 10px rgb(0, 0, 0);font-size:xx-large;">
         T - 00D 00H 00M 00S
       </h2>
+      </div>
     </div>
-    <div><a href="#s1">↓</a></div>
+      
+      
   </header>
 
   <section id="s1">
@@ -64,7 +73,6 @@
       <h2>SOL & RODRI</h2>
       <p>PROCESO DE UNIÓN ACTIVADO</p>
     </div>
-      <div><a href="#s2">↓</a></div>
   </section>
 
   <section id="s2">
@@ -125,7 +133,8 @@
     <div class="card" id="copiar">  
       <p>Tu presencia es el factor más importante para el éxito de la misión.</p>
 
-        <p>SI QUERES COLABORAR CON LA MISION</p>
+        <p style="color:gold">APORTE A LA MISIÓN</p>
+        <p>El futuro no se salva solo.</p><p> Si queres ayudarnos en nuestra <span style="color:darksalmon">misión final (luna de miel)</span> podés hacerlo mediante un <span style="color:darksalmon">aporte económico</span></p>
         <div style="font-weight: 200;color:rgba(8, 236, 8, 0.774)">
           <p>CBU 4530000800012495030149</p>
           <p>ALIAS <span style="color:red" id="alias">SOLYRODRILABODA</span></p>
@@ -140,12 +149,12 @@
 
   <section>
     <div class="card" style="text-align:center">
-      <p style="font-size: x-small;">DRESS CODE ELEGANTE – RESISTENCIA AL APOCALIPSIS</p>
+      <p style="font-size:larger;">DRESS CODE <u>ELEGANTE</u></p>
+      <p style="    font-size: medium;color: gray;">Para una mejor experiencia asistir sin niños</p>
       <br>
       <p>
-    EL FUTURO YA ESTÁ ESCRITO
-    PERO ESTA HISTORIA SE FESTEJA</p>
-
+    NO HAY DESTINO QUE NO SEA EL QUE NOSTROS MISMOS FORJAMOS</p>
+<br><br><br>
 <p style="color:#f61601;text-shadow:0 0 6px red">HASTA LA BODA BABY</p>
 
     </div>
@@ -155,6 +164,27 @@
 
 <!-- Termynal JS -->
 <script src="termynal.js"></script>
+<script>
+function marcarProgressCompletados() {
+  const progressBars = [document.getElementById('progress1'),
+                        document.getElementById('progress2'),
+                        document.getElementById('progress3')];
+
+  progressBars.forEach(bar => {
+    // Evita remarcar dos veces
+    if (bar.classList.contains('success')) return;
+
+    // Cuando el progress deja de crecer (100%)
+    const texto = bar.textContent || '';
+    if (texto === '███████████████ 100%') { // coincide con progressLength
+      bar.classList.add('success');
+    }
+  });
+}
+
+// Chequea periódicamente
+setInterval(marcarProgressCompletados, 100);
+</script>
 
 <script>
 
@@ -166,7 +196,7 @@
     if (navigator.clipboard && window.isSecureContext) {
       navigator.clipboard.writeText(texto)
         .then(() => {
-          window.alert("Información adquirida:", texto);
+          window.alert("TRANSFERENCIA HABILITADA · ALIAS ADQUIRIDO · PROCEDER CON LA OPERACIÓN");
         })
         .catch(() => copiarFallback(texto));
     } else {
@@ -184,7 +214,7 @@
     console.log("Copiado con fallback:", texto);
   }
 
-  const copiarDiv = document.getElementById("copiar");
+  const copiarDiv = document.getElementById("alias");
 
   copiarDiv.addEventListener("click", copiarAlias);
   copiarDiv.addEventListener("touchend", copiarAlias);
